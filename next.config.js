@@ -5,5 +5,6 @@ module.exports = {
   images: {
     loader: "imgix",
     path: "",
-  }
+  },
+  distDir: "_next",
 }
