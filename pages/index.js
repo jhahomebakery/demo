@@ -11,7 +11,7 @@ import {
 import Layout from "../components/Layout";
 import data from "../utils/data";
 import NextLink from "next/link";
-const imagePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+//const imagePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function Home() {
   return (
     <Layout>
@@ -28,7 +28,7 @@ export default function Home() {
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      image={imagePathPrefix + product.image}
+                      image={product.image}
                       title={product.name}
                     />
                     <CardContent>
