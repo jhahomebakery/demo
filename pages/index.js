@@ -2,6 +2,7 @@ import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid,
 import Layout from "../components/Layout";
 import data from "../utils/data";
 import NextLink from 'next/link';
+const imagePathPrefix ='/demo';
 export default function Home() {
   return (
     <Layout>
@@ -15,7 +16,7 @@ export default function Home() {
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    image={product.image}
+                    image={imagePathPrefix+product.image}
                     title={product.name}
                   />
                   <CardContent>
