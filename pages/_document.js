@@ -1,12 +1,13 @@
 import { ServerStyleSheets } from "@material-ui/core";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import React from "react";
-
+const prefix = '/demo';
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
+          <link rel="shortcut icon" href={prefix +'/favicon.ico'}/>
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"

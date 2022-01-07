@@ -1,8 +1,17 @@
-import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@material-ui/core";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 import Layout from "../components/Layout";
 import data from "../utils/data";
-import NextLink from 'next/link';
-const imagePathPrefix ='/demo';
+import NextLink from "next/link";
+const imagePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function Home() {
   return (
     <Layout>
@@ -12,19 +21,20 @@ export default function Home() {
           {data.products.map((product) => (
             <Grid item md={4} key={product.name}>
               <Card>
-                <NextLink href = {`/product/${product.slug}`} passHref >
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    image={imagePathPrefix+product.image}
-                    title={product.name}
-                  />
-                  <CardContent>
-                    <Typography>
-                      {product.name}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
+                <NextLink
+                  href={imagePathPrefix + `/product/${product.slug}`}
+                  passHref
+                >
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      image={imagePathPrefix + product.image}
+                      title={product.name}
+                    />
+                    <CardContent>
+                      <Typography>{product.name}</Typography>
+                    </CardContent>
+                  </CardActionArea>
                 </NextLink>
                 <CardActions>
                   <Typography>${product.price}</Typography>

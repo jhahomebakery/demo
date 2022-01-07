@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
-  basePath:'/demo',
-  assetPrefix:'/demo',
+  basePath:process.env.NEXT_PUBLIC_BASE_PATH,
+  assetPrefix:process.env.NEXT_PUBLIC_BASE_PATH,
   images: {
     loader: "imgix",
     path: "",

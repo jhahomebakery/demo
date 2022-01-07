@@ -28,8 +28,10 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build 
+      env:
+        NEXT_PUBLIC_BASE_PATH: '/demo'
     - run: npm run export
-    - run: touch ./out/ .nojekyll
+    - run: touch ./out/ .nojekll
     
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.2.0

@@ -14,6 +14,7 @@ import data from "../../utils/data";
 import Layout from "../../components/Layout";
 import useStyles from "../../utils/styles";
 import Image from "next/image";
+const imagePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function ProductScreen() {
   const classes = useStyles();
   const router = useRouter();
@@ -25,7 +26,7 @@ export default function ProductScreen() {
   return (
     <Layout title={product.name} description={product.description}>
       <div className={classes.section}>
-        <NextLink href="/" passHref>
+        <NextLink href={imagePathPrefix} passHref>
           <Link>
             <Typography>back to products</Typography>
           </Link>
@@ -34,7 +35,7 @@ export default function ProductScreen() {
       <Grid container spacing={1}>
         <Grid item md={6} xs={12}>
           <Image
-            src={product.image}
+            src={imagePathPrefix + product.image}
             alt={product.name}
             width={640}
             height={640}
@@ -43,8 +44,10 @@ export default function ProductScreen() {
         </Grid>
         <Grid item md={3} xs={12}>
           <List>
-          <ListItem>
-              <Typography component="h1" variant="h1">Name:{product.name}</Typography>
+            <ListItem>
+              <Typography component="h1" variant="h1">
+                Name:{product.name}
+              </Typography>
             </ListItem>
             <ListItem>
               <Typography>Category:{product.category}</Typography>
@@ -71,7 +74,7 @@ export default function ProductScreen() {
                     <Typography>Price</Typography>
                   </Grid>
                   <Grid item xs={6}>
-                      <Typography>${product.price}</Typography>
+                    <Typography>${product.price}</Typography>
                   </Grid>
                 </Grid>
               </ListItem>
@@ -81,14 +84,16 @@ export default function ProductScreen() {
                     <Typography>Status</Typography>
                   </Grid>
                   <Grid item xs={6}>
-                      <Typography>{product.countInStock > 0 ? 'In stock':'Unavailable'}</Typography>
+                    <Typography>
+                      {product.countInStock > 0 ? "In stock" : "Unavailable"}
+                    </Typography>
                   </Grid>
                 </Grid>
               </ListItem>
               <ListItem>
-                  <Button fullWidth varient="contained" color="primary">
-                      Add to cart
-                  </Button>
+                <Button fullWidth varient="contained" color="primary">
+                  Add to cart
+                </Button>
               </ListItem>
             </List>
           </Card>
