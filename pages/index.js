@@ -11,7 +11,7 @@ import {
 import Layout from "../components/Layout";
 import data from "../utils/data";
 import NextLink from "next/link";
-//const imagePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const imagePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 export default function Home() {
   return (
     <Layout>
@@ -22,13 +22,13 @@ export default function Home() {
             <Grid item md={4} key={product.name}>
               <Card>
                 <NextLink
-                  href={`/product/${product.slug}`}
+                  href={imagePathPrefix + `/product/${product.slug}`}
                   passHref
                 >
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      image={product.image}
+                      image={imagePathPrefix + product.image}
                       title={product.name}
                     />
                     <CardContent>

@@ -15,6 +15,7 @@ import Layout from "../../components/Layout";
 import useStyles from "../../utils/styles";
 import Image from "next/image";
 const imagePathPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function ProductScreen() {
   const classes = useStyles();
   const router = useRouter();
@@ -35,7 +36,7 @@ export default function ProductScreen() {
       <Grid container spacing={1}>
         <Grid item md={6} xs={12}>
           <Image
-            src={imagePathPrefix + product.image}
+            src={product.image}
             alt={product.name}
             width={640}
             height={640}
