@@ -22,7 +22,7 @@ export default function Home() {
             <Grid item md={4} key={product.name}>
               <Card>
                 <NextLink
-                  href={imagePathPrefix + `/product/${product.slug}`}
+                  href={`/product/${product.slug}`}
                   passHref
                 >
                   <CardActionArea>
